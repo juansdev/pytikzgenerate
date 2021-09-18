@@ -12,8 +12,8 @@ from modulos import ValidadorPytikz
 from modulos.kivy.otros_widgets.aviso_informativo import AvisoInformativo
 from modulos.logging import GenerarDiagnostico
 
-class Pytikz():
-    """Clase Pytikz, genera graficos a partir del codigo TikZ utilizando el motor grafico de Kivy, y lo dibuja en un Widget de Kivy, antes de graficar se realizan las siguientes validaciones:
+class PytikzGenerate():
+    """Clase PytikzGenerate, genera graficos a partir del codigo TikZ utilizando el motor grafico de Kivy, y lo dibuja en un Widget de Kivy, antes de graficar se realizan las siguientes validaciones:
     
     1. Verifica la indentacion del codigo TikZ, debe de contar con minimo 0 espacios de indentacion hasta un maximo de 8 espacios de indentacion, la indentacion debe de realizarse con un multiplo de 4 de espacios.
     
