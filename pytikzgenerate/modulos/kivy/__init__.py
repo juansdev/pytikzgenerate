@@ -1,11 +1,17 @@
 #GLOBAL
-import globales
+from pytikzgenerate import globales
 #Otras librerias
 import os
 from functools import partial
 #FRAMEWORK KIVYMD
 from kivymd.uix.dialog import MDDialog
 from kivymd.uix.button import MDRaisedButton
+
+"""Modulo encargado de cargar clases Kivy.
+
+Clase: 
+- AvisoInformativo"""
+
 class AvisoInformativo():
 
     """Lanza una ventana informativa.

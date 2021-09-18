@@ -6,7 +6,7 @@ from kivy.uix.relativelayout import RelativeLayout
 from kivy.graphics import Color, BindTexture, Rectangle, Ellipse, InstructionGroup
 from kivy.graphics.texture import Texture
 #Globales
-import globales
+from pytikzgenerate import globales
 
 #Relleno con degradado para figuras cerradas (Excluyendo la figura de lineas(Line) y bezier (Line(bezier=coordenadas)).
 class Relleno():

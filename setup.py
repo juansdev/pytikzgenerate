@@ -1,5 +1,5 @@
 import os
-from distutils.core import setup
+from setuptools import setup, find_packages
 from os.path import join, dirname
 
 # La ruta del build donde pytikzgenerate esta siendo compilado
@@ -27,8 +27,15 @@ setup(
         'Una libreria de software para el rapido desarrollo de '
         'graficos utilizando el codigo TiKZ.'),
     long_description=get_description(),
-    packages=["pytikzgenerate"],
+    long_description_content_type='text/markdown',
+    packages=find_packages(),
+    install_requires=[i.strip() for i in open("requirements.txt").readlines()],
     package_dir={'pytikzgenerate': 'pytikzgenerate'},
+    package_data={
+        #En las carpetas vacias debe de haber un archivo .txt, para que se incluyan. 
+        "pytikzgenerate": ["media/**/*.ttf","recursos/**/*.*","recursos/**/**/*.*"]
+    },
+    test_suite="test",
     download_url = 'https://github.com/juansdev/pytikzgenerate/archive/refs/tags/0.2.zip',
     classifiers=[
         'Development Status :: 3 - Alpha',

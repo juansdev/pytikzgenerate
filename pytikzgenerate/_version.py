@@ -1,4 +1,4 @@
-# This file is imported from __init__.py and exec'd from setup.py
+# Este archivo es importado de __init__.py y ejecutado desde setup.py
 
 MAJOR = 0
 MINOR = 2

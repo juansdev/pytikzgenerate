@@ -5,7 +5,7 @@ from kivy.graphics import Rectangle, BindTexture, Color, InstructionGroup
 from PIL import Image
 
 #Globales
-import globales
+from pytikzgenerate import globales
 
 #Relleno con o sin degradado para figuras dibujadas con Lineas. (Line)
 class RellenoLineasLibre():

@@ -11,7 +11,7 @@ from math import floor
 from functools import partial
 
 #Globales
-import globales
+from pytikzgenerate import globales
 
 #KIVY
 from kivy.lang import Builder
@@ -24,7 +24,7 @@ from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.button import MDRaisedButton
 
 #Librerias propias
-from modulos.limpiar_recursos import limpiar_recursos
+from pytikzgenerate.modulos.limpiar_recursos import limpiar_recursos
 
 class InfoProgreso(MDBoxLayout):
     pass

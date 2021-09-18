@@ -3,14 +3,15 @@ import pathlib, os
 #Kivy
 from kivy.utils import platform
 #Globales
-import globales
+from pytikzgenerate import globales
 #Librerias propias
-from modulos import IndentadorTikz
-from modulos import DepuradorTikz
-from modulos import Transpilador
-from modulos import ValidadorPytikz
-from modulos.kivy.otros_widgets.aviso_informativo import AvisoInformativo
-from modulos.logging import GenerarDiagnostico
+from pytikzgenerate.modulos import IndentadorTikz
+from pytikzgenerate.modulos import DepuradorTikz
+from pytikzgenerate.modulos import Transpilador
+from pytikzgenerate.modulos import ValidadorPytikz
+from pytikzgenerate.modulos.kivy import AvisoInformativo
+from pytikzgenerate.modulos.logging import GenerarDiagnostico
+from pytikzgenerate.modulos.limpiar_recursos import limpiar_recursos
 
 class PytikzGenerate():
     """Clase PytikzGenerate, genera graficos a partir del codigo TikZ utilizando el motor grafico de Kivy, y lo dibuja en un Widget de Kivy, antes de graficar se realizan las siguientes validaciones:
@@ -33,13 +34,14 @@ class PytikzGenerate():
     def __init__(self,codigo_tikz:str,area_de_dibujar:object,user_data_dir=None):
         """Se recibe 2 parametros, y 1 parametro opcional:
         codigo_tikz(str): Es el codigo tikz en cadena de texto.
-        area_de_dibujar(object): Es el Widget en donde se desea dibujar el codigo tikz escrito, se recomienda un Widget de tipo RelativeLayout.
+        area_de_dibujar(object): Es el Widget en donde se desea dibujar el codigo tikz escrito, se recomienda un Widget de tipo RelativeLayout con un fondo totalmente de color blanco.
         user_data_dir=None(object): Las rutas que utilizamos para guardar los archivos en un entorno Android, es apartir de la ruta raiz "user_data_dir" de la clase MDApp (Si se utiliza el Framework de Kivy el KivyMD) o App (Si utiliza puramente Kivy).
         
         Los valores validos para el parametro user_data_dir, son: 
         - MDApp().user_data_dir
         - App().user_data_dir"""
         #Configuracion - Globales
+        globales.init()
         globales.ruta_raiz = os.path.dirname(os.path.abspath(__file__))
         if(platform == "android"):
             globales.ruta_imagen = os.path.join(os.path.dirname(user_data_dir), 'DCIM')
@@ -51,6 +53,8 @@ class PytikzGenerate():
                 if(ubicacion == "imagen"):
                     ruta_ubicacion = pathlib.Path(os.path.join(globales.ruta_imagen,carpeta_necesaria))
                 ruta_ubicacion.mkdir(parents=True, exist_ok=True)
+        #Eliminar recursos temporales
+        limpiar_recursos()
         #Mostrar rutas globales
         GenerarDiagnostico(self.__class__.__name__,"Ruta raiz del directorio: "+globales.ruta_raiz,"info")
         GenerarDiagnostico(self.__class__.__name__,"Ruta de la carpeta imagen: "+globales.ruta_imagen,"info")

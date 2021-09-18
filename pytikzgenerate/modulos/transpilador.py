@@ -1,7 +1,7 @@
 import re
 from copy import deepcopy
 # Librerias propias
-from modulos.submodulos.base_pytikz import BasePytikz
+from pytikzgenerate.modulos.submodulos.base_pytikz import BasePytikz
 
 class Transpilador(BasePytikz):
     """

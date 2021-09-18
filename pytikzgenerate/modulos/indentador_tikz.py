@@ -2,7 +2,7 @@ import re
 from typing import List, Union
 
 #Librerias propias
-from modulos.logging import GenerarDiagnostico
+from pytikzgenerate.modulos.logging import GenerarDiagnostico
 
 class IndentadorTikz():
     """Realiza la validacion de indentacion del codigo TikZ, si el codigo esta bien indentado siguiendo la regla de indentacion de un multiplo de 4 de espacios. Se guaradara en un Array de indentacion, donde tendra anidaciones de Array dependiendo si el comando esta anidado dentro de otro comando o no, se conservan los espacios.

@@ -2,10 +2,10 @@ import re, json
 from typing import List, Union, Dict
 from copy import deepcopy
 # Librerias propias
-from modulos.submodulos.base_pytikz import BasePytikz
-from modulos.logging import GenerarDiagnostico
-from modulos.submodulos.depurador_tikz.tratamiento_parametros import TratamientoParametros
-from modulos.submodulos.validadores import Validadores
+from pytikzgenerate.modulos.submodulos.base_pytikz import BasePytikz
+from pytikzgenerate.modulos.logging import GenerarDiagnostico
+from pytikzgenerate.modulos.submodulos.depurador_tikz.tratamiento_parametros import TratamientoParametros
+from pytikzgenerate.modulos.submodulos.validadores import Validadores
 
 class DepuradorTikz(BasePytikz):
     """Realiza la depuracion del codigo TikZ, verifica si el codigo TikZ es compatible con un codigo PyTikZ."""

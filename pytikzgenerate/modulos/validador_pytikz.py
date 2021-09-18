@@ -8,12 +8,12 @@ from kivy.graphics import Color, Line, Rectangle, Ellipse, InstructionGroup
 from kivy.clock import Clock
 from bisect import bisect, insort
 # Librerias propias
-from modulos.submodulos.base_pytikz import BasePytikz
-from modulos.submodulos.validadores import Validadores
-from modulos.submodulos.validador_pytikz.relleno import Relleno
-from modulos.submodulos.validador_pytikz.relleno_lineas_libre import RellenoLineasLibre
-from modulos.submodulos.validador_pytikz.guardar_dibujo_en_formato import GuardarDibujoEnImagen
-from modulos.submodulos.evaluar import Evaluar
+from pytikzgenerate.modulos.submodulos.base_pytikz import BasePytikz
+from pytikzgenerate.modulos.submodulos.validadores import Validadores
+from pytikzgenerate.modulos.submodulos.validador_pytikz.relleno import Relleno
+from pytikzgenerate.modulos.submodulos.validador_pytikz.relleno_lineas_libre import RellenoLineasLibre
+from pytikzgenerate.modulos.submodulos.validador_pytikz.guardar_dibujo_en_formato import GuardarDibujoEnImagen
+from pytikzgenerate.modulos.submodulos.evaluar import Evaluar
 from .transpilador import Transpilador
 
 class ValidadorPytikz(BasePytikz):
