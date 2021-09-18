@@ -1,8 +1,16 @@
+import os
 from distutils.core import setup
 from os.path import join, dirname
-from pytikz import Pytikz
 
-__version__ = Pytikz.__version__
+# La ruta del build donde pytikz esta siendo compilado
+src_path = dirname(__file__)
+print("La ruta actual es: {}".format(os.getcwd()))
+print("Fuente y la inicialización de la carpeta build es: {}".format(src_path))
+
+# __version__ es importado por exec, pero ayuda a linter a no quejarse
+__version__ = None
+with open(join(src_path, 'pytikz', '_version.py'), encoding="utf-8") as f:
+    exec(f.read())
 
 def get_description():
     with open(join(dirname(__file__), 'README.md'), 'rb') as fileh:
@@ -19,10 +27,9 @@ setup(
         'Una libreria de software para el rapido desarrollo de '
         'graficos utilizando el codigo TiKZ.'),
     long_description=get_description(),
-    long_description_content_type='text/markdown',
     packages=["pytikz"],
     package_dir={'pytikz': 'pytikz'},
-    download_url = 'https://github.com/{user_name}/{repo}/tarball/0.1',
+    download_url = 'https://github.com/juansdev/pytikz/archive/refs/tags/0.2.zip',
     classifiers=[
         'Development Status :: 0.2.0 - Alpha',
         'Environment :: Win32 (MS Windows)',
