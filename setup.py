@@ -36,7 +36,7 @@ setup(
         "pytikzgenerate": ["media/**/*.ttf","recursos/**/*.*","recursos/**/**/*.*"]
     },
     test_suite="test",
-    download_url = 'https://github.com/juansdev/pytikzgenerate/archive/refs/tags/0.2.zip',
+    download_url = 'https://github.com/juansdev/pytikzgenerate/archive/refs/tags/0.2.1.zip',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Win32 (MS Windows)',
