@@ -31,22 +31,18 @@ class PytikzGenerate():
 
     __version__ = "0.2.0"
 
-    def __init__(self,codigo_tikz:str,area_de_dibujar:object,user_data_dir=None):
+    def __init__(self,codigo_tikz:str,area_de_dibujar:object,primary_external_storage_path=""):
         """Se recibe 2 parametros, y 1 parametro opcional:
         codigo_tikz(str): Es el codigo tikz en cadena de texto.
         area_de_dibujar(object): Es el Widget en donde se desea dibujar el codigo tikz escrito, se recomienda un Widget de tipo RelativeLayout con un fondo totalmente de color blanco.
-        user_data_dir=None(object): Las rutas que utilizamos para guardar los archivos en un entorno Android, es apartir de la ruta raiz "user_data_dir" de la clase MDApp (Si se utiliza el Framework de Kivy el KivyMD) o App (Si utiliza puramente Kivy).
-        
-        Los valores validos para el parametro user_data_dir, son: 
-        - MDApp().user_data_dir
-        - App().user_data_dir"""
+        primary_external_storage_path=""(str): Esta ruta lo utilizamos para guardar los archivos en un entorno Android, es apartir de la ruta devuelta por primary_external_storage_path() de la clase android."""
         #Configuracion - Globales
         globales.init()
         globales.ruta_raiz = os.path.dirname(os.path.abspath(__file__))
         if(platform == "android"):
-            globales.ruta_imagen = os.path.join(os.path.dirname(user_data_dir), 'DCIM')
+            globales.ruta_imagen = os.path.join(primary_external_storage_path,"DCIM")#/storage/emulated/0/DCIM
         else:
-            ruta_usuario = str(pathlib.Path.home())#'C:\\Users\\juanf'
+            ruta_usuario = str(pathlib.Path.home())#'C:\\Users\\nombre_de_usuario'
             globales.ruta_imagen = os.path.join(ruta_usuario, 'Pictures')
         for ubicacion,carpetas_necesarias in globales.carpetas_necesarias.items():
             for carpeta_necesaria in carpetas_necesarias:
