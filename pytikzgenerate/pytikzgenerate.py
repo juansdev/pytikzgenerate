@@ -29,7 +29,10 @@ class PytikzGenerate():
     
     3.2. En el caso de que la depuracion no sea valida, se lanzara un aviso informativo de error."""
 
-    __version__ = "0.2.0"
+    # __version__ es importado por exec
+    __version__ = None
+    with open(os.path.join(os.path.dirname(__file__), '_version.py'), encoding="utf-8") as f:
+        exec(f.read())
 
     def __init__(self,codigo_tikz:str,area_de_dibujar:object,primary_external_storage_path=""):
         """Se recibe 2 parametros, y 1 parametro opcional:
