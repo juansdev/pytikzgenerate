@@ -12,7 +12,6 @@ from pytikzgenerate.modulos import ValidadorPytikz
 from pytikzgenerate.modulos.kivy import AvisoInformativo
 from pytikzgenerate.modulos.logging import GenerarDiagnostico
 from pytikzgenerate.modulos.limpiar_recursos import limpiar_recursos
-#Importo la version para la clase PytikzGenerate
 from pytikzgenerate._version import __version__
 class PytikzGenerate():
     """Clase PytikzGenerate, genera graficos a partir del codigo TikZ utilizando el motor grafico de Kivy, y lo dibuja en un Widget de Kivy, antes de graficar se realizan las siguientes validaciones:
@@ -36,6 +35,7 @@ class PytikzGenerate():
         area_de_dibujar(object): Es el Widget en donde se desea dibujar el codigo tikz escrito, se recomienda un Widget de tipo RelativeLayout con un fondo totalmente de color blanco.
         primary_external_storage_path=""(str): Esta ruta lo utilizamos para guardar los archivos en un entorno Android, es apartir de la ruta devuelta por primary_external_storage_path() de la clase android."""
         #Configuracion - Globales
+        print(__version__)
         globales.init()
         globales.ruta_raiz = os.path.dirname(os.path.abspath(__file__))
         if(platform == "android"):
