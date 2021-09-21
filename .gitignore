@@ -1,2 +1,5 @@
 #Carpetas
 */__pycache__
+/build/
+/dist/
+/pytikzGenerate.egg-info/
